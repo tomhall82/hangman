@@ -22,21 +22,25 @@ Main game function
 def play_game():
     print(answer)
 
-    lives = 10
+    lives = 5
+    guesses = []
     hidden_answer = "_ " * len(answer)
     print(hidden_answer)
 
     while lives > 0:
-        print(lives)
+        print(f"Lives remaining: {lives}")
+        print(f"Letters guessed: {guesses}")
 
         guess = input("Please guess a letter: ")
         if guess in answer:
-            print(f"Well done! {guess} is in the secret word!\n")
+            print(f"\nWell done! {guess} is in the secret word!\n")
+            guesses.append(guess)
         elif guess == "quit":
             break
         else:
             lives -= 1
-            print(f"Too bad, {guess} is not in the secret word!\n")
+            print(f"\nToo bad, {guess} is not in the secret word!\n")
+            guesses.append(guess)
 
 
 
