@@ -14,22 +14,29 @@ Generate random word from list
 def random_word():
     return random.choice(words)
 
-word = random_word()
-lives = 10
+answer = random_word()
 
 """
 Main game function
 """
 def play_game():
-    print(word)
+    print(answer)
 
-    answer = word
+    lives = 10
     hidden_answer = "_ " * len(answer)
     print(hidden_answer)
 
+    while lives > 0:
+        print(lives)
 
-
-
+        guess = input("Please guess a letter: ")
+        if guess in answer:
+            print(f"Well done! {guess} is in the secret word!\n")
+        elif guess == "quit":
+            break
+        else:
+            lives -= 1
+            print(f"Too bad, {guess} is not in the secret word!\n")
 
 
 
