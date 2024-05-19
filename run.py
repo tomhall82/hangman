@@ -60,14 +60,24 @@ def play_game():
         print(f"You beat the hangman and live to play another day!\n")
         
     else:
-        print(f"\nUh oh! You lose!/n")
+        print(f"\nUh oh! You lose!\n")
         print(f"The secret word was '{answer}', who knew?!\n")
 
     play_again()
 
 
 def play_again():
-    print("LETS GO ROUND AGAIN!")
+    try:
+        again = input("would you like to play again? (Y/N) ")
+        again != "Y" or "N"
+        if again == "Y":
+            print(f"\n\nLETS GO ROUND AGAIN!\n\n")
+            play_game()
+        else:
+            print(f"\n\nBye! See you again soon!\n\n")
+            welcome()
+    except ValueError():
+        print("Please enter either 'Y' or 'N'")
 
 def update_hidden_answer(current_hidden_answer, answer, guess):
     """
