@@ -1,18 +1,48 @@
 import random
 import re
 import os
-from music import bands
 
-catagories = ""
-    
-def random_word():
+from music import bands
+from cars import car_brands
+from animals import animal_list
+
+
+def title():
+    clear_screen()
+    print("Welcome to HANGMAN!\n")
+    print("Press enter to start!\n")
+    input()
+    clear_screen()
+
+def catagories():
+    """
+    Select a catagory to import specific words into the game
+    """
+    print("Please choose one of the following catagories:\n")
+    print("Music\n")
+    print("Cars\n")
+    print("Animals\n")
+    user_choice = input("")
+    clear_screen()
+    print(f"\nYou chose {user_choice}")
+
+    if user_choice == "music":
+        return bands
+    elif user_choice == "cars":
+        return car_brands
+    elif user_choice == "animals":
+        return animal_list
+    else:
+        print(f"You chose {user_choice}, this is not a valid option.")
+    return catagories()
+
+def random_word(list):
     """
     Generate random word from imported list
     """
     # Assisted through information on Stack Overflow
-    return random.choice(bands).upper()
-
-answer = random_word()
+    list = catagories()
+    return random.choice(list).upper()
 
 # def validate_guess():
 #         try:
@@ -26,8 +56,10 @@ def play_game():
     """
     Main game function
     """
-    answer = random_word()
+    answer = random_word(list)
+    clear_screen()
     print("You have 5 lives to work out the secret word.")
+    print(f"The secret word is from your chosen catagory '")
     print("Good luck!\n")
     print(answer)
 
@@ -96,6 +128,8 @@ def play_again():
         else:
             clear_screen()
             print(f"\n\nBye! See you again soon!\n\n")
+            print("Press enter to continue\n")
+            input()
             main()
     except ValueError():
         print("Please enter either 'Y' or 'N'")
@@ -120,12 +154,8 @@ def clear_screen():
     os.system("cls")
 
 def main():
-    clear_screen()
-    print("Welcome to HANGMAN!\n")
-    print("Press any key to continue\n")
-    input()
-    clear_screen()
-    random_word()
+    title()
+    # random_word(list)
     play_game()
 
 main()
