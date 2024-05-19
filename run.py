@@ -24,9 +24,9 @@ def play_game():
 
     lives = 5
     guesses = []
-    hidden_answer = "_ " * len(answer)
+    hidden_answer = "_" * len(answer)
 
-    while lives > 0 or hidden_answer != answer:
+    while lives > 0:
         """
         While loop runs until lives hit zero, player wins or
         enters "quit" to return to main menu
@@ -37,24 +37,37 @@ def play_game():
 
         guess = input("Please guess a letter: ")
         if guess in guesses:
-            print(f"No no no! You have already tried {guess}, try again!")
+            print(f"\nNo no no! You have already tried '{guess}', try again!\n")
         elif guess == "quit":
             break
         elif guess in answer:
-            print(f"\nWell done! {guess} is in the secret word!\n")
             hidden_answer = update_hidden_answer(hidden_answer, answer, guess)
             guesses.append(guess)
+            # Check to see if player has won
+            if hidden_answer == answer:
+                break
+            else:
+                print(f"\nWell done! '{guess}' is in the secret word!\n")
+                
         else:
             lives -= 1
-            print(f"\nToo bad, {guess} is not in the secret word!\n")
+            print(f"\nToo bad, '{guess}' is not in the secret word!\n")
             guesses.append(guess)
-        
+
+       
     if hidden_answer == answer:
-        print(f"Well done! You beat the hangman and live to play another day!/n")
-        print(f"The secret word was {answer}")
+        print(f"\nWell done! The secret word was '{answer}'!")
+        print(f"You beat the hangman and live to play another day!\n")
+        
     else:
-        print(f"Uh oh! You lose!/n")
-        print(f"The secret word was {answer}")
+        print(f"\nUh oh! You lose!/n")
+        print(f"The secret word was '{answer}', who knew?!\n")
+
+    play_again()
+
+
+def play_again():
+    print("LETS GO ROUND AGAIN!")
 
 def update_hidden_answer(current_hidden_answer, answer, guess):
     """
