@@ -1,11 +1,12 @@
 import random
+import re
 from music import bands
 
 catagories = ["music","cars", "general", "code", "institute"]
     
 def random_word():
     """
-    Generate random word from list
+    Generate random word from imported list
     """
     # Assisted through information on Stack Overflow
     return random.choice(bands).upper()
@@ -24,13 +25,15 @@ def play_game():
     """
     Main game function
     """
+    answer = random_word()
     print("You have 5 lives to work out the secret word.")
     print("Good luck!\n")
     print(answer)
 
     lives = 5
     guesses = []
-    hidden_answer = "_" * len(answer)
+    # How to avoid spaces courtesy of Stack Overflow
+    hidden_answer = re.sub(r"\S", "_", answer)
 
     while lives > 0:
         """
@@ -105,6 +108,7 @@ def main():
     print("Welcome to HANGMAN!")
     print("Press any key to continue")
     input()
+    random_word()
     play_game()
 
 main()
