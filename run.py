@@ -1,19 +1,24 @@
 import random
+from music import bands
 
-
-words = ["test","python", "computer", "code", "institute"]
-
-def welcome():
-    print("Welcome to HANGMAN!")
+catagories = ["music","cars", "general", "code", "institute"]
     
-
-"""
-Generate random word from list
-"""
 def random_word():
-    return random.choice(words).upper()
+    """
+    Generate random word from list
+    """
+    # Assisted through information on Stack Overflow
+    return random.choice(bands).upper()
 
 answer = random_word()
+
+# def validate_guess():
+#         try:
+#             if len(guess) == 1 and guess.isalpha():
+#                 raise ValueError(f"A single letter answer is required, you entered {len(guess)}")
+#         except ValueError:
+#             print("Please enter a single letter")
+#             return False
 
 def play_game():
     """
@@ -37,9 +42,10 @@ def play_game():
         print(hidden_answer)
 
         guess = input("\nPlease guess a letter: ").upper()
+        # validate_guess()
         if guess in guesses:
             print(f"\nNo no no! You have already tried '{guess}', try again!\n")
-        elif guess == "quit":
+        elif guess == "QUIT":
             break
         # elif guess == answer:
         #     hidden_answer = update_hidden_answer(hidden_answer, answer, guess)
@@ -59,7 +65,6 @@ def play_game():
             lives -= 1
             print(f"\nToo bad, '{guess}' is not in the secret word!\n")
             guesses.append(guess)
-
        
     if hidden_answer == answer:
         print(f"\nWell done! The secret word was '{answer}'!")
@@ -69,12 +74,7 @@ def play_game():
         print(f"\nUh oh! You lose!\n")
         print(f"The secret word was '{answer}', who knew?!\n")
 
-    play_again()
-
-# def validate_guess():
-#     # try:
-#     #     if len(guess) == 1 and guess.isalpha():
-            
+    play_again()          
 
 def play_again():
     try:
@@ -85,7 +85,7 @@ def play_again():
             play_game()
         else:
             print(f"\n\nBye! See you again soon!\n\n")
-            welcome()
+            main()
     except ValueError():
         print("Please enter either 'Y' or 'N'")
 
@@ -101,5 +101,10 @@ def update_hidden_answer(current_hidden_answer, answer, guess):
             new_hidden_answer += current_hidden_answer[x]
     return new_hidden_answer
 
-welcome()
-play_game()
+def main():
+    print("Welcome to HANGMAN!")
+    print("Press any key to continue")
+    input()
+    play_game()
+
+main()
