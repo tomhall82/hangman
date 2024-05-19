@@ -1,8 +1,9 @@
 import random
 import re
+import os
 from music import bands
 
-catagories = ["music","cars", "general", "code", "institute"]
+catagories = ""
     
 def random_word():
     """
@@ -63,18 +64,23 @@ def play_game():
                 print(f"\n{hidden_answer}")
                 break
             else:
-                print(f"\nWell done! '{guess}' is in the secret word!\n")   
+                clear_screen()
+                print(f"\nWell done! '{guess}' is in the secret word!\n")
+                
         else:
             lives -= 1
+            clear_screen()
             print(f"\nToo bad, '{guess}' is not in the secret word!\n")
             guesses.append(guess)
        
     if hidden_answer == answer:
-        print(f"\nWell done! The secret word was '{answer}'!")
+        clear_screen()
+        print(f"\n\nWell done! The secret word was '{answer}'!")
         print(f"You beat the hangman and live to play another day!\n")
         
     else:
-        print(f"\nUh oh! You lose!\n")
+        clear_screen()
+        print(f"\n\nUh oh! You lose!\n")
         print(f"The secret word was '{answer}', who knew?!\n")
 
     play_again()          
@@ -84,9 +90,11 @@ def play_again():
         again = input("would you like to play again? (Y/N) ").upper()
         again != "Y" or "N"
         if again == "Y":
-            print(f"\n\nLETS GO ROUND AGAIN!\n\n")
+            clear_screen()
+            print(f"\n\nLETS GO AGAIN!\n\n")
             play_game()
         else:
+            clear_screen()
             print(f"\n\nBye! See you again soon!\n\n")
             main()
     except ValueError():
@@ -104,10 +112,19 @@ def update_hidden_answer(current_hidden_answer, answer, guess):
             new_hidden_answer += current_hidden_answer[x]
     return new_hidden_answer
 
+def clear_screen():
+    """
+    Clears the terminal
+    """
+    # learnt from https://www.geeksforgeeks.org/clear-screen-python/
+    os.system("cls")
+
 def main():
-    print("Welcome to HANGMAN!")
-    print("Press any key to continue")
+    clear_screen()
+    print("Welcome to HANGMAN!\n")
+    print("Press any key to continue\n")
     input()
+    clear_screen()
     random_word()
     play_game()
 
