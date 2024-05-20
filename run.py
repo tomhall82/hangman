@@ -14,7 +14,7 @@ def title():
     input()
     clear_screen()
 
-def catagories():
+def get_user_catagory():
     """
     Select a catagory to import specific words into the game
     """
@@ -22,44 +22,53 @@ def catagories():
     print("Music\n")
     print("Cars\n")
     print("Animals\n")
-    user_choice = input("")
+    user_catagory_choice = input("")
     clear_screen()
-    print(f"\nYou chose {user_choice}")
+    # I want to move this out into the game option to show what catagory
+    # the user is playing but can't get it to work?!
+    print(f"\nYou chose {user_catagory_choice}")
 
-    if user_choice == "music":
-        return bands
-    elif user_choice == "cars":
-        return car_brands
-    elif user_choice == "animals":
-        return animal_list
+    if user_catagory_choice == "music":
+        return bands, "music"
+    elif user_catagory_choice == "cars":
+        return car_brands, "cars"
+    elif user_catagory_choice == "animals":
+        return animal_list, "animals"
     else:
-        print(f"You chose {user_choice}, this is not a valid option.")
-    return catagories()
+        print(f"You chose {user_catagory_choice}, this is not a valid option.")
+    return get_user_catagory()
 
-def random_word(list):
+def random_word(userChoice):
     """
     Generate random word from imported list
     """
     # Assisted through information on Stack Overflow
-    list = catagories()
-    return random.choice(list).upper()
+    return random.choice(userChoice).upper()
 
-# def validate_guess():
-#         try:
-#             if len(guess) == 1 and guess.isalpha():
-#                 raise ValueError(f"A single letter answer is required, you entered {len(guess)}")
-#         except ValueError:
-#             print("Please enter a single letter")
-#             return False
+def validate_guess(user_guess):
+    try:
+        if user_guess.isalpha():
+            return True
+    except ValueError:
+        print("Please enter a letter")
+        return False
+
+def user_guess():
+    user_guess = input("\nPlease guess a letter: ").upper()
+    if validate_guess(user_guess):
+        return user_guess
+    else:
+        user_guess()
 
 def play_game():
     """
     Main game function
     """
-    answer = random_word(list)
+    userChoice, catagory_name = get_user_catagory()
+    answer = random_word(userChoice)
     clear_screen()
     print("You have 5 lives to work out the secret word.")
-    print(f"The secret word is from your chosen catagory '")
+    print(f"The secret word is from your chosen catagory '{catagory_name.upper()}'")
     print("Good luck!\n")
     print(answer)
 
@@ -77,17 +86,20 @@ def play_game():
         print(f"Letters guessed: {guesses}\n")
         print(hidden_answer)
 
-        guess = input("\nPlease guess a letter: ").upper()
-        # validate_guess()
+        guess = user_guess()
+        
         if guess in guesses:
             print(f"\nNo no no! You have already tried '{guess}', try again!\n")
         elif guess == "QUIT":
             break
-        # elif guess == answer:
-        #     hidden_answer = update_hidden_answer(hidden_answer, answer, guess)
-        #     guesses.append(guess)
-        #     print(hidden_answer)
-        #     break
+        elif len(guess) > 1:
+            # Check to see if player has guessed a word
+            print(f"You have guessed the word {guess}")
+            # See if word is the correct answer
+            if guess == answer:
+                win()
+            else:
+                break
         elif guess in answer:
             hidden_answer = update_hidden_answer(hidden_answer, answer, guess)
             guesses.append(guess)
@@ -112,10 +124,12 @@ def play_game():
         
     else:
         clear_screen()
-        print(f"\n\nUh oh! You lose!\n")
-        print(f"The secret word was '{answer}', who knew?!\n")
 
     play_again()          
+
+def win():
+    print(f"\n\nUh oh! You lose!\n")
+    print(f"The secret word was '{userChoice}', who knew?!\n")
 
 def play_again():
     try:
