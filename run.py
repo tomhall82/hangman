@@ -19,9 +19,7 @@ def get_user_catagory():
     Select a catagory to import specific words into the game
     """
     print("Please choose one of the following catagories:\n")
-    print("Music\n")
-    print("Cars\n")
-    print("Animals\n")
+    print("--- MUSIC --- CARS --- ANIMALS ---\n")
     user_catagory_choice = input("")
     clear_screen()
     # I want to move this out into the game option to show what catagory
@@ -38,12 +36,12 @@ def get_user_catagory():
         print(f"You chose {user_catagory_choice}, this is not a valid option.")
     return get_user_catagory()
 
-def random_word(userChoice):
+def random_word(secret_word):
     """
     Generate random word from imported list
     """
     # Assisted through information on Stack Overflow
-    return random.choice(userChoice).upper()
+    return random.choice(secret_word).upper()
 
 def validate_guess(user_guess):
     try:
@@ -64,8 +62,8 @@ def play_game():
     """
     Main game function
     """
-    userChoice, catagory_name = get_user_catagory()
-    answer = random_word(userChoice)
+    secret_word, catagory_name = get_user_catagory()
+    answer = random_word(secret_word)
     clear_screen()
     print("You have 5 lives to work out the secret word.")
     print(f"The secret word is from your chosen catagory '{catagory_name.upper()}'")
@@ -89,33 +87,38 @@ def play_game():
         guess = user_guess()
         
         if guess in guesses:
+            clear_screen()
             print(f"\nNo no no! You have already tried '{guess}', try again!\n")
         elif guess == "QUIT":
             break
         elif len(guess) > 1:
+            clear_screen()
             # Check to see if player has guessed a word
             print(f"You have guessed the word {guess}")
             # See if word is the correct answer
             if guess == answer:
-                win()
+                clear_screen()
+                print(f"\n\nWell done! The secret word was '{answer}'!")
+                print(f"You beat the hangman and live to play another day!\n")
+                play_again()
             else:
-                break
+                lives -= 2
+                clear_screen()
+                print(f"\nNice try! But, '{guess}' is not the secret word!\n")
         elif guess in answer:
             hidden_answer = update_hidden_answer(hidden_answer, answer, guess)
-            guesses.append(guess)
             # Check to see if player has won
             if hidden_answer == answer:
                 print(f"\n{hidden_answer}")
                 break
             else:
                 clear_screen()
-                print(f"\nWell done! '{guess}' is in the secret word!\n")
-                
+                print(f"\nWell done! '{guess}' is in the secret word!\n")               
         else:
             lives -= 1
             clear_screen()
             print(f"\nToo bad, '{guess}' is not in the secret word!\n")
-            guesses.append(guess)
+        guesses.append(guess)   
        
     if hidden_answer == answer:
         clear_screen()
@@ -124,12 +127,10 @@ def play_game():
         
     else:
         clear_screen()
+        print(f"\n\nUh oh! You lose!\n")
+        print(f"The secret word was '{answer}', who knew?!\n")
 
-    play_again()          
-
-def win():
-    print(f"\n\nUh oh! You lose!\n")
-    print(f"The secret word was '{userChoice}', who knew?!\n")
+    play_again()
 
 def play_again():
     try:
@@ -169,7 +170,6 @@ def clear_screen():
 
 def main():
     title()
-    # random_word(list)
     play_game()
 
 main()
