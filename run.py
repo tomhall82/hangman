@@ -15,27 +15,27 @@ def title():
     input()
     clear_screen()
 
-def get_user_catagory():
+def get_user_category():
     """
-    Select a catagory to import specific words into the game
+    Select a category to import specific words into the game
     """
-    print("\nPlease choose one of the following catagories:\n")
-    print("--- MUSIC --- CARS --- ANIMALS ---\n")
-    user_catagory_choice = input("")
+    print("\nPlease choose one of the following categories:\n")
+    print("     --- MUSIC --- CARS --- ANIMALS ---\n")
+    user_category_choice = input("")
     clear_screen()
-    # I want to move this out into the game option to show what catagory
+    # I want to move this out into the game option to show what category
     # the user is playing but can't get it to work?!
-    print(f"\nYou chose {user_catagory_choice}")
+    print(f"\nYou chose {user_category_choice}")
 
-    if user_catagory_choice == "music":
+    if user_category_choice == "music":
         return bands, "music"
-    elif user_catagory_choice == "cars":
+    elif user_category_choice == "cars":
         return car_brands, "cars"
-    elif user_catagory_choice == "animals":
+    elif user_category_choice == "animals":
         return animal_list, "animals"
     else:
         print(f"This is not a valid option! Please try again")
-    return get_user_catagory()
+    return get_user_category()
 
 def random_word(secret_word):
     """
@@ -63,11 +63,11 @@ def play_game():
     """
     Main game function
     """
-    secret_word, catagory_name = get_user_catagory()
+    secret_word, category_name = get_user_category()
     answer = random_word(secret_word)
     clear_screen()
     print("You have 5 lives to work out the secret word.")
-    print(f"The secret word is from your chosen catagory '{catagory_name.upper()}'")
+    print(f"The secret word is from your chosen catagory '{category_name.upper()}'")
     print("Good luck!\n")
     print(answer)
 
