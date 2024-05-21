@@ -1,7 +1,7 @@
 import random
 import re
 import os
-from ascii_art import hangman_title, trophy
+from ascii_art import hangman_title, trophy, thanks
 import gallows
 
 from music import bands
@@ -12,7 +12,6 @@ from animals import animal_list
 def title():
     clear_screen()
     hangman_title()
-    print("\nPress enter to play!\n")
     input()
     clear_screen()
 
@@ -20,7 +19,7 @@ def get_user_catagory():
     """
     Select a catagory to import specific words into the game
     """
-    print("Please choose one of the following catagories:\n")
+    print("\nPlease choose one of the following catagories:\n")
     print("--- MUSIC --- CARS --- ANIMALS ---\n")
     user_catagory_choice = input("")
     clear_screen()
@@ -148,8 +147,7 @@ def play_again():
             play_game()
         else:
             clear_screen()
-            print(f"\n\nBye! See you again soon!\n\n")
-            print("Press enter to continue\n")
+            thanks()
             input()
             main()
     except ValueError():
