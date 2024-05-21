@@ -1,7 +1,7 @@
 def hangman_title():
     print("""
  
-  _   _  ___  _   _ ________  ___ ___  _   _ 
+   _   _  ___  _   _ ________  ___ ___  _   _ 
   | | | |/ _ \| \ | |  __ \  \/  |/ _ \| \ | |
   | |_| / /_\ \  \| | |  \/ .  . / /_\ \  \| |
   |  _  |  _  | . ` | | __| |\/| |  _  | . ` |
@@ -15,10 +15,6 @@ But beware... get it wrong and it will cost you...
           
              Press enter to play!
 """)
-    print("")
-    print("")
-    print("")
-    print("\n")
 
 def trophy():
     print(""" 
