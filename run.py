@@ -1,6 +1,7 @@
 import random
 import re
 import os
+from title import hangman_title, hanging_man
 
 from music import bands
 from cars import car_brands
@@ -9,8 +10,8 @@ from animals import animal_list
 
 def title():
     clear_screen()
-    print("Welcome to HANGMAN!\n")
-    print("Press enter to start!\n")
+    hangman_title()
+    print("\nPress enter to play!\n")
     input()
     clear_screen()
 
@@ -33,7 +34,7 @@ def get_user_catagory():
     elif user_catagory_choice == "animals":
         return animal_list, "animals"
     else:
-        print(f"You chose {user_catagory_choice}, this is not a valid option.")
+        print(f"This is not a valid option! Please try again")
     return get_user_catagory()
 
 def random_word(secret_word):
