@@ -1,7 +1,7 @@
 import random
 import re
 import os
-from title import hangman_title
+from ascii_art import hangman_title, trophy
 import gallows
 
 from music import bands
@@ -101,7 +101,8 @@ def play_game():
             # See if word is the correct answer
             if guess == answer:
                 clear_screen()
-                print(f"\n\nWell done! The secret word was '{answer}'!")
+                trophy()
+                print(f"\nWell done! The secret word was '{answer}'!")
                 print(f"You beat the hangman and live to play another day!\n")
                 play_again()
             else:
@@ -125,7 +126,8 @@ def play_game():
        
     if hidden_answer == answer:
         clear_screen()
-        print(f"\n\nWell done! The secret word was '{answer}'!")
+        trophy()
+        print(f"\nWell done! The secret word was '{answer}'!")
         print(f"You beat the hangman and live to play another day!\n")
         
     else:
