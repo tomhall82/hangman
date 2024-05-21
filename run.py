@@ -1,7 +1,8 @@
 import random
 import re
 import os
-from title import hangman_title, hanging_man
+from title import hangman_title
+import gallows
 
 from music import bands
 from cars import car_brands
@@ -71,7 +72,7 @@ def play_game():
     print("Good luck!\n")
     print(answer)
 
-    lives = 5
+    lives = 6
     guesses = []
     # How to avoid spaces courtesy of Stack Overflow
     hidden_answer = re.sub(r"\S", "_", answer)
@@ -81,6 +82,7 @@ def play_game():
         While loop runs until lives hit zero, player wins or
         enters "quit" to return to main menu
         """
+        print(gallows.hanging_man[lives])
         print(f"Lives remaining: {lives}")
         print(f"Letters guessed: {guesses}\n")
         print(hidden_answer)
@@ -129,6 +131,7 @@ def play_game():
     else:
         clear_screen()
         print(f"\n\nUh oh! You lose!\n")
+        print(gallows.hanging_man[lives])
         print(f"The secret word was '{answer}', who knew?!\n")
 
     play_again()
