@@ -34,7 +34,7 @@ def get_user_category():
     elif user_category_choice == "animals":
         return animal_list, "animals"
     else:
-        print(f"This is not a valid option! Please try again")
+        print(f"This is not a valid option! Please try again:")
     return get_user_category()
 
 def random_word(secret_word):
@@ -45,19 +45,21 @@ def random_word(secret_word):
     return random.choice(secret_word).upper()
 
 def validate_guess(user_guess):
+    # bug fix massively assisted by https://stackoverflow.com/questions/59495030/combine-isalpha-and-isspace-into-1-statement
     try:
-        if user_guess.isalpha():
-            return True
+        if not all(entry.isalpha() or entry.isspace() for entry in user_guess):
+            raise ValueError
     except ValueError:
         print("Please enter a letter")
-        return False
+        user_guess
+    else:
+        return True
 
 def user_guess():
-    user_guess = input("\nPlease guess a letter: ").upper()
-    if validate_guess(user_guess):
-        return user_guess
-    else:
-        user_guess()
+    while True:
+        user_guess = input("\nPlease guess a letter: ").upper()
+        if validate_guess(user_guess):
+            return user_guess
 
 def play_game():
     """
@@ -116,12 +118,12 @@ def play_game():
                 break
             else:
                 clear_screen()
-                print(f"\nWell done! '{guess}' is in the secret word!\n")               
+                print(f"\nWell done! '{guess}' is in the secret word!\n")
         else:
             lives -= 1
             clear_screen()
             print(f"\nToo bad, '{guess}' is not in the secret word!\n")
-        guesses.append(guess)   
+        guesses.append(guess)
        
     if hidden_answer == answer:
         clear_screen()
