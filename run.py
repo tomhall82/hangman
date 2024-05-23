@@ -1,7 +1,7 @@
 import random
 import re
 import os
-from ascii_art import hangman_title, trophy, thanks
+from ascii_art import hangman_title, trophy, thanks, lets_go
 import gallows
 
 from music import bands
@@ -25,7 +25,7 @@ def get_user_category():
     clear_screen()
     # I want to move this out into the game option to show what category
     # the user is playing but can't get it to work?!
-    print(f"\nYou chose {user_category_choice}")
+    print(f"\nYou chose {user_category_choice}\n")
 
     if user_category_choice == "music":
         return bands, "music"
@@ -145,7 +145,7 @@ def play_again():
         again != "Y" or "N"
         if again == "Y":
             clear_screen()
-            print(f"\n\nLETS GO AGAIN!\n\n")
+            lets_go()
             play_game()
         else:
             clear_screen()
