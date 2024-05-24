@@ -103,7 +103,7 @@ def play_game():
             if guess == answer:
                 clear_screen()
                 trophy()
-                print(f"\nWell done! The secret word was '{answer}'!")
+                print(f"\nWell done, you win! The secret word was '{answer}'!")
                 print(f"You beat the hangman and live to play another day!\n")
                 play_again()
             else:
@@ -140,6 +140,9 @@ def play_game():
     play_again()
 
 def play_again():
+    """
+    Ask player if they want to play again
+    """
     try:
         again = input("would you like to play again? (Y/N) ").upper()
         again != "Y" or "N"
