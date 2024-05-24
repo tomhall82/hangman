@@ -23,8 +23,7 @@ def get_user_category():
     print("     --- MUSIC --- CARS --- ANIMALS ---\n")
     user_category_choice = input("")
     clear_screen()
-    # I want to move this out into the game option to show what category
-    # the user is playing but can't get it to work?!
+
     print(f"\nYou chose {user_category_choice}\n")
 
     if user_category_choice == "music":
@@ -45,7 +44,8 @@ def random_word(secret_word):
     return random.choice(secret_word).upper()
 
 def validate_guess(user_guess):
-    # bug fix massively assisted by https://stackoverflow.com/questions/59495030/combine-isalpha-and-isspace-into-1-statement
+    # bug fix massively assisted by 
+    # https://stackoverflow.com/questions/59495030/combine-isalpha-and-isspace-into-1-statement
     try:
         if not all(entry.isalpha() or entry.isspace() for entry in user_guess):
             raise ValueError
@@ -71,6 +71,7 @@ def play_game():
     print("You have 5 lives to work out the secret word.")
     print(f"The secret word is from your chosen catagory '{category_name.upper()}'")
     print("Good luck!\n")
+    # Prints answer to allow for testing purposes
     print(answer)
 
     lives = 6
