@@ -10,7 +10,7 @@ def hangman_title():
                                             
   Welcome to HANGMAN! Try and guess the secret
 word before you run out of lives! Feeling brave?
-        You can gues the whole word!
+        You can guess the whole word!
 But beware... get it wrong and it will cost you...
           
              Press enter to play!
