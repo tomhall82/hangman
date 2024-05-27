@@ -1,32 +1,69 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+#Hangman
 
-Welcome,
+This is a hangman game with multiple categories including Music, Cars and Animals.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+![Hangman main screen](assets/docs/images/hangman_main.png)
 
-## Reminders
+Visit the live website:
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+[Visit Hangman](https://tomhall-hangman-d11ad0eae5ff.herokuapp.com/)
 
-## Creating the Heroku app
+## Contents
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+- How to play
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## How to play
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+The player chooses a category from Music, Cars or Animals and then is presented with a secret word. In 6 attempts or less, the player can guess individual letters or the entire word. Once the player has successfully guessed the word(s) without using all of their lives, they win! For every incorrect guess the player loses a life and the charachter begins to appear on the gallows. If the player incorrectly guesses the word(s) 2 lives are lost and the gallows move forward by 2. if all lives are lost without the word being guessed, the game is over.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Design
 
-Connect your GitHub repository and deploy as normal.
+### Features
 
-## Constraints
+### Future development
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- Additional categories.
+- A "random" function which will take a word at random from all categories.
+- Time limits on guesses or a timed mode, where the player only has a finite amount of time to guess the word.
 
----
+## Technologies Used
 
-Happy coding!
+### Languages Used
+
+The application has been entirely created in Python.
+
+### Libraries & Programs Used
+
+Git - For version control.
+
+[Github](https://github.com/) - To save and store the files for the website.
+
+[Heroku](https://dashboard.heroku.com/apps) - To deploy website.
+
+## Deployment & Local Development
+
+### Deployment
+
+Heroku has been used to deploy the live website. The instructions to achieve this are below:
+
+### How to Fork
+
+To fork the GitHub hangman repository:
+
+Log in (or sign up) to Github.
+Go to the repository for this project, tomhall82/rock-paper-scissors-plus.
+Click the Fork button in the top right corner.
+
+### How to Clone
+
+To clone the hangman repository:
+
+Log in (or sign up) to GitHub.
+Go to the repository for this project, tomhall82/hangman.
+Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+The link to the repository can be found here - [https://github.com/tomhall82/hangman/](https://github.com/tomhall82/hangman/)
+
+## Testing
