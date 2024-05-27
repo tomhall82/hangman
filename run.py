@@ -71,8 +71,6 @@ def play_game():
     print("You have 5 lives to work out the secret word.")
     print(f"The secret word is from your chosen catagory '{category_name.upper()}'")
     print("Good luck!\n")
-    # Prints answer to allow for testing purposes
-    print(answer)
 
     lives = 6
     guesses = []
