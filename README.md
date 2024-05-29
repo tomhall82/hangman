@@ -14,11 +14,17 @@ Visit the live website:
 
 ## How to play
 
-The player chooses a category from Music, Cars or Animals and then is presented with a secret word. In 6 attempts or less, the player can guess individual letters or the entire word. Once the player has successfully guessed the word(s) without using all of their lives, they win! For every incorrect guess the player loses a life and the charachter begins to appear on the gallows. If the player incorrectly guesses the word(s) 2 lives are lost and the gallows move forward by 2. if all lives are lost without the word being guessed, the game is over.
+The player chooses a category from Music, Cars or Animals and then is presented with a secret word. In 6 attempts or less, the player can guess individual letters or the entire word. Once the player has successfully guessed the word(s) without using all of their lives, they win! For every incorrect guess the player loses a life and the charachter begins to appear on the gallows. If the player incorrectly guesses the word(s) 2 lives are lost and the gallows move forward by 2. if all lives are lost without the word being guessed, the game is over. The user can quit at any time by entering "QUIT" as a guess.
 
 ## Design
 
+![LucidChart flow diagram](assets/docs/images/lucidchart.png)
+
 ### Features
+
+- Category selection. Choose from music, cars or animal categories to generate your secret word.
+- Guess individual letters or the entire word.
+- Quit at any time by entering "QUIT" as your guess.
 
 ### Future development
 
