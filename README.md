@@ -18,6 +18,10 @@ The player chooses a category from Music, Cars or Animals and then is presented 
 
 ## Design
 
+I wanted a simple and intuitive hangman game which while fun, gave the user the opportunity to challenge themselves. I feel I have achieved this by offering a selection of categorys and also giving the user the opportunity to guess the word in its entirety at any point.
+
+The process was planned using LucidChart as below:
+
 ![LucidChart flow diagram](assets/docs/images/lucidchart.png)
 
 ### Features
@@ -51,6 +55,15 @@ Git - For version control.
 ### Deployment
 
 Heroku has been used to deploy the live website. The instructions to achieve this are below:
+
+Log into Heroku
+Select settings
+Enter app name
+Select build packs for Python and Node.js
+Select Deploy
+Choose Github under Deployment Method
+Connect to repository
+Once connected, select Automatic Deploys. This deploys each push to GitHub.
 
 ### How to Fork
 
