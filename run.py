@@ -92,7 +92,7 @@ def play_game():
         """
         print(gallows.hanging_man[lives])
         print(f"Lives remaining: {lives}")
-        print(f"Letters guessed: {guesses}\n")
+        print(f"Previous guesses: {guesses}\n")
         print(hidden_answer)
 
         guess = user_guess()
