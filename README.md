@@ -109,6 +109,12 @@ The link to the repository can be found here - [https://github.com/tomhall82/han
 
 ## Testing
 
+### CI Python Linter
+
+Passed with no errors found.
+
+![CI Python Linter](assets/docs/images/ci_python_linter.png)
+
 ### Manual Testing
 
 | Feature                                                                                                           | Expected Outcome                                                                                                                                                                                                      | Testing Performed                                                                                                                                               | Result                                                                                                    | Pass/Fail |
