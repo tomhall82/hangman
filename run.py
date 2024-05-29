@@ -18,6 +18,7 @@ def title():
     input()
     clear_screen()
 
+
 def get_user_category():
     """
     Select a category to import specific words into the game
@@ -39,12 +40,14 @@ def get_user_category():
         print(f"This is not a valid option! Please try again:")
     return get_user_category()
 
+
 def random_word(secret_word):
     """
     Generate random word from imported list
     """
     # Assisted through information on Stack Overflow
     return random.choice(secret_word).upper()
+
 
 def validate_guess(user_guess):
     """
@@ -59,6 +62,7 @@ def validate_guess(user_guess):
     else:
         return True
 
+
 def user_guess():
     """
     This function prompts the user to guess a letter and then sends the user
@@ -69,6 +73,7 @@ def user_guess():
         if validate_guess(user_guess):
             return user_guess
 
+
 def play_game():
     """
     Main game function
@@ -77,8 +82,8 @@ def play_game():
     answer = random_word(secret_word)
     clear_screen()
     print("You have 5 lives to work out the secret word.")
-    print(f"The secret word is from your chosen catagory '{category_name.upper()}'")
-    print("Good luck!\n")
+    print("The secret word is from your chosen catagory")
+    print(f"'{category_name.upper()}'. Good luck!\n")
 
     lives = 6
     guesses = []
@@ -96,10 +101,11 @@ def play_game():
         print(hidden_answer)
 
         guess = user_guess()
-        
+
         if guess in guesses:
             clear_screen()
-            print(f"\nNo no no! You have already tried '{guess}', try again!\n")
+            print(f"\nNo no no! You have already tried '{guess}'!")
+            print("Please try again!\n")
         elif guess == "QUIT":
             break
         elif len(guess) > 1:
@@ -131,13 +137,13 @@ def play_game():
             clear_screen()
             print(f"\nToo bad, '{guess}' is not in the secret word!\n")
         guesses.append(guess)
-       
+
     if hidden_answer == answer:
         clear_screen()
         trophy()
         print(f"\nWell done! The secret word was '{answer}'!")
         print(f"You beat the hangman and live to play another day!\n")
-        
+
     else:
         clear_screen()
         print(f"\n\nUh oh! You lose!\n")
@@ -146,12 +152,13 @@ def play_game():
 
     play_again()
 
+
 def play_again():
     """
     Ask player if they want to play again
     """
     again = input("would you like to play again? (Y/N) ").upper()
-        
+
     if again == "Y":
         clear_screen()
         lets_go()
@@ -165,6 +172,7 @@ def play_again():
         print("Please enter either 'Y' or 'N'")
         play_again()
 
+
 def update_hidden_answer(current_hidden_answer, answer, guess):
     """
     Update hidden answer to show correctly guessed letters
@@ -176,6 +184,7 @@ def update_hidden_answer(current_hidden_answer, answer, guess):
         else:
             new_hidden_answer += current_hidden_answer[x]
     return new_hidden_answer
+
 
 def clear_screen():
     """
@@ -189,11 +198,13 @@ def clear_screen():
     else:
         _ = system("clear")
 
+
 def main():
     """
     Main game function
     """
     title()
     play_game()
+
 
 main()
