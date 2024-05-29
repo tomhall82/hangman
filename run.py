@@ -159,6 +159,8 @@ def play_again():
     elif again == "N":
         clear_screen()
         thanks()
+        input()
+        title()
     else:
         print("Please enter either 'Y' or 'N'")
         play_again()
