@@ -1,6 +1,5 @@
 def hangman_title():
     print("""
- 
    _   _  ___  _   _ ________  ___ ___  _   _ 
   | | | |/ _ \| \ | |  __ \  \/  |/ _ \| \ | |
   | |_| / /_\ \  \| | |  \/ .  . / /_\ \  \| |
@@ -12,6 +11,9 @@ def hangman_title():
 word before you run out of lives! Feeling brave?
         You can guess the whole word!
 But beware... get it wrong and it will cost you...
+          
+If it all gets too much, just enter "QUIT" as
+  your guess. But we know you're no quitter!
           
              Press enter to play!
 """)
