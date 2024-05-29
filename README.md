@@ -1,4 +1,4 @@
-#Hangman
+# Hangman
 
 This is a hangman game with multiple categories including Music, Cars and Animals.
 
@@ -10,9 +10,39 @@ Visit the live website:
 
 ## Contents
 
-- How to play
+- [How to Play](#how-to-play)
 
-## How to play
+- [Design](#design)
+
+  - [Features](#features)
+  - [Future Development](#future-development)
+
+- [Technologies Used](#technologies-used)
+
+  - [Languages Used](#languages-used)
+  - [Libraries & Programmes Used](#libraries--programs-used)
+
+- [Deployment & Local Development](#deployment--local-development)
+
+  - [Deployment](#deployment)
+  - [How to Fork](#how-to-fork)
+  - [How to Clone](#how-to-clone)
+
+- [Testing](#testing)
+
+  - [CI Python Linter](#ci-python-linter)
+  - [Manual Testing](#manual-testing)
+  - [Resolved Bugs](#resolved-bugs)
+  - [Known Bugs](#known-bugs)
+
+- [Credits](#credits)
+
+  - [Troubleshooting & Reference Resources](#troubleshooting--reference-resources)
+  - [Ascii](#ascii)
+
+- [Acknowledgments](#acknowledgments)
+
+## How to Play
 
 The player chooses a category from Music, Cars or Animals and then is presented with a secret word. In 6 attempts or less, the player can guess individual letters or the entire word. Once the player has successfully guessed the word(s) without using all of their lives, they win! For every incorrect guess the player loses a life and the charachter begins to appear on the gallows. If the player incorrectly guesses the word(s) 2 lives are lost and the gallows move forward by 2. if all lives are lost without the word being guessed, the game is over. The user can quit at any time by entering "QUIT" as a guess.
 
@@ -52,7 +82,7 @@ The process was planned using LucidChart as below:
 - Guess individual letters or the entire word.
 - Quit at any time by entering "QUIT" as your guess.
 
-### Future development
+### Future Development
 
 - Additional categories.
 - A "random" function which will take a word at random from all categories.
@@ -78,14 +108,8 @@ Git - For version control.
 
 Heroku has been used to deploy the live website. The instructions to achieve this are below:
 
-Log into Heroku
-Select settings
-Enter app name
-Select build packs for Python and Node.js
-Select Deploy
-Choose Github under Deployment Method
-Connect to repository
-Once connected, select Automatic Deploys. This deploys each push to GitHub.
+Log into Heroku. Select settings and enter app name. Select build packs for Python and Node.js. Select Deploy and under Deployment Method, select GitHub. Connect to GitHub repository.
+Once connected, select Automatic Deploys so each push to GitHub will deploy on live site.
 
 ### How to Fork
 
@@ -132,7 +156,7 @@ Passed with no errors found.
 | Play game function takes you to the thank you selection screen if N is input                                      | If N is entered when asked to play again then user is taken the thank you screen                                                                                                                                      | 10+ games played to test                                                                                                                                        | Directed to thank you screen when N was entered following play again prompt on every attempt              | Pass      |
 | Press enter to continue on thank you screen                                                                       | User is prompted to press enter on thank you screen to return to main menu                                                                                                                                            | 10+ games played to test                                                                                                                                        | Once enter key is pressed, user is returned to main menu                                                  | Pass      |
 
-### Resolved bugs
+### Resolved Bugs
 
 1. Unable to select different categories. This was resolved during a meeting with my mentor where he identified my naming conventions needed to be improved. With some restructuring to the function everything worked.
 1. Unable to enter a space without an error and the game crashing. This was an issue with validation which was recognising that a space is not a letter. This was resolved after a visit to stack overflow, in particular https://stackoverflow.com/questions/59495030/combine-isalpha-and-isspace-into-1-statement which helped me to implement this into my own code. Following this, the game will accept letters and spaces as valid answers.
@@ -141,13 +165,13 @@ Passed with no errors found.
 1. Resloved an issue where the play game function would not recognise an incorrect input. For example, a user pressing enter or entering somethign other than yes or no would result in the game responding as if "N" had been entered.
 1. Thank you screen causing the game to crash if any other input was received before the enter key was pressed. Resolved by tweaking code to include missed input() function along with a call to the title() function.
 
-### Known bugs
+### Known Bugs
 
 1. None currently
 
 ## Credits
 
-### Troubleshooting & reference resources
+### Troubleshooting & Reference Resources
 
 - [stackoverflow](https://stackoverflow.com/)
 - [geeksforgeeks.org](https://www.geeksforgeeks.org/)
