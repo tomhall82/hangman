@@ -16,6 +16,27 @@ Visit the live website:
 
 The player chooses a category from Music, Cars or Animals and then is presented with a secret word. In 6 attempts or less, the player can guess individual letters or the entire word. Once the player has successfully guessed the word(s) without using all of their lives, they win! For every incorrect guess the player loses a life and the charachter begins to appear on the gallows. If the player incorrectly guesses the word(s) 2 lives are lost and the gallows move forward by 2. if all lives are lost without the word being guessed, the game is over. The user can quit at any time by entering "QUIT" as a guess.
 
+![New game](assets/docs/images/game_start.png)
+![Mid game](assets/docs/images/game_mid.png)
+
+Winning message:
+
+![Game win message](assets/docs/images/game_win.png)
+
+Losing message:
+
+![Game lose message](assets/docs/images/game_loss.png)
+
+If the user opts to play again they will se the below message and be given the option to select a different category:
+
+![Play again](assets/docs/images/play_again_y.png)
+
+Should the user decide to not play again, they will see the below message:
+
+![Do not play again](assets/docs/images/play_again_n.png)
+
+This will then ask them to press enter to return to the main menu.
+
 ## Design
 
 I wanted a simple and intuitive hangman game which while fun, gave the user the opportunity to challenge themselves. I feel I have achieved this by offering a selection of categorys and also giving the user the opportunity to guess the word in its entirety at any point.
@@ -27,6 +48,7 @@ The process was planned using LucidChart as below:
 ### Features
 
 - Category selection. Choose from music, cars or animal categories to generate your secret word.
+  ![Category selection](assets/docs/images/category_selection.png)
 - Guess individual letters or the entire word.
 - Quit at any time by entering "QUIT" as your guess.
 
