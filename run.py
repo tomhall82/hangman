@@ -10,6 +10,9 @@ from animals import animal_list
 
 
 def title():
+    """
+    Generates the title screen for the game.
+    """
     clear_screen()
     hangman_title()
     input()
@@ -44,8 +47,9 @@ def random_word(secret_word):
     return random.choice(secret_word).upper()
 
 def validate_guess(user_guess):
-    # bug fix massively assisted by 
-    # https://stackoverflow.com/questions/59495030/combine-isalpha-and-isspace-into-1-statement
+    """
+    Validates the user's guess by checking it only contains letters or spaces.
+    """
     try:
         if not all(entry.isalpha() or entry.isspace() for entry in user_guess):
             raise ValueError
@@ -56,6 +60,10 @@ def validate_guess(user_guess):
         return True
 
 def user_guess():
+    """
+    This function prompts the user to guess a letter and then sends the user
+    input to the validate_guess function.
+    """
     while True:
         user_guess = input("\nPlease guess a letter: ").upper()
         if validate_guess(user_guess):
@@ -142,20 +150,18 @@ def play_again():
     """
     Ask player if they want to play again
     """
-    try:
-        again = input("would you like to play again? (Y/N) ").upper()
-        again != "Y" or "N"
-        if again == "Y":
-            clear_screen()
-            lets_go()
-            play_game()
-        else:
-            clear_screen()
-            thanks()
-            input()
-            main()
-    except ValueError():
+    again = input("would you like to play again? (Y/N) ").upper()
+        
+    if again == "Y":
+        clear_screen()
+        lets_go()
+        play_game()
+    elif again == "N":
+        clear_screen()
+        thanks()
+    else:
         print("Please enter either 'Y' or 'N'")
+        play_again()
 
 def update_hidden_answer(current_hidden_answer, answer, guess):
     """
@@ -182,6 +188,9 @@ def clear_screen():
         _ = system("clear")
 
 def main():
+    """
+    Main game function
+    """
     title()
     play_game()
 
