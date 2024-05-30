@@ -46,8 +46,7 @@ Visit the live website:
 
 The player chooses a category from Music, Cars or Animals and then is presented with a secret word. In 6 attempts or less, the player can guess individual letters or the entire word. Once the player has successfully guessed the word(s) without using all of their lives, they win! For every incorrect guess the player loses a life and the charachter begins to appear on the gallows. If the player incorrectly guesses the word(s) 2 lives are lost and the gallows move forward by 2. if all lives are lost without the word being guessed, the game is over. The user can quit at any time by entering "QUIT" as a guess.
 
-![New game](assets/docs/images/game_start.png)
-![Mid game](assets/docs/images/game_mid.png)
+![Game GIF](assets/docs/images/hangman1.gif)
 
 Winning message:
 
