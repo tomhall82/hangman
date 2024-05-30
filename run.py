@@ -56,6 +56,8 @@ def validate_guess(user_guess):
     try:
         if not all(entry.isalpha() or entry.isspace() for entry in user_guess):
             raise ValueError
+        elif user_guess == "":
+            raise ValueError
     except ValueError:
         print("\nEntry not recognised. Please enter either a letter or space")
     else:
