@@ -103,6 +103,8 @@ Git - For version control.
 
 [Heroku](https://dashboard.heroku.com/apps) - To deploy website.
 
+[freeconvert.com](https://www.freeconvert.com/convert/mp4-to-gif/download) - To convert videos into GIFs
+
 ## Deployment & Local Development
 
 ### Deployment
