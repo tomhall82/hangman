@@ -17,6 +17,7 @@ def title():
     hangman_title()
     input()
     clear_screen()
+    play_game()
 
 
 def get_user_category():
@@ -200,12 +201,8 @@ def clear_screen():
         _ = system("clear")
 
 
-def main():
+if __name__ == '__main__':
     """
     Main game function
     """
     title()
-    play_game()
-
-
-main()
