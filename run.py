@@ -25,7 +25,7 @@ def get_user_category():
     """
     print("\nPlease choose one of the following categories:\n")
     print("     --- MUSIC --- CARS --- ANIMALS ---\n")
-    user_category_choice = input("")
+    user_category_choice = input("").lower()
     clear_screen()
 
     print(f"\nYou chose {user_category_choice}\n")
@@ -58,7 +58,6 @@ def validate_guess(user_guess):
             raise ValueError
     except ValueError:
         print("\nEntry not recognised. Please enter either a letter or space")
-        user_guess
     else:
         return True
 
